@@ -118,3 +118,46 @@ $xo(document).ready(function() {
       lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
     });
 });
+
+$xo(document).ready(function() {
+    $xo('.expert-help-trigger').on('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var $help = $xo(this).closest('.expert-help');
+        var isOpen = $help.toggleClass('is-open').hasClass('is-open');
+        $xo(this).attr('aria-expanded', isOpen ? 'true' : 'false');
+    });
+    $xo(document).on('click', function() {
+        $xo('.expert-help.is-open').removeClass('is-open');
+        $xo('.expert-help-trigger').attr('aria-expanded', 'false');
+    });
+    $xo('.expert-help-menu').on('click', function(e) {
+        e.stopPropagation();
+    });
+});
+
+$xo(document).ready(function() {
+    $xo('.topBanner-carousel').each(function() {
+        var $carousel = $xo(this);
+        var $slides = $carousel.find('.topBanner-promo');
+        var current = 0;
+        var total = $slides.length;
+
+        if (total < 2) return;
+
+        function showSlide(index) {
+            current = (index + total) % total;
+            $slides.removeClass('is-active').attr('aria-hidden', 'true');
+            $slides.eq(current).addClass('is-active').attr('aria-hidden', 'false');
+        }
+
+        $carousel.find('.topBanner-carousel-btn--prev').on('click', function() {
+            showSlide(current - 1);
+        });
+        $carousel.find('.topBanner-carousel-btn--next').on('click', function() {
+            showSlide(current + 1);
+        });
+
+        showSlide(0);
+    });
+});

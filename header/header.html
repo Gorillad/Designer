@@ -1,17 +1,25 @@
 <!-- PASTE into XOLogic → Dashboard → Header.
      Header JS is loaded via the Metadata section (/data/js/header.js). -->
     <div class="topBanner-WD">
-        <div class="bannerCont-WD centerWrap-WD displayFlex-WD spaceBetween-WD">
-            <h1>Exclusive promo codes on featured deals — shop top picks in lighting, fans &amp; décor and save today</h1> 
-            <div class="desktopNav">
-                <ul>
-                    <li><a href="/" aria-label="Home">Home</a></li>
-                    <li><a href="/about-us" aria-label="About Us">About Us</a></li>
-                    <li><a href="/contact-us" aria-label="Contact Us">Contact</a></li>
-                   <li><a href="/page-trade-pros.html" aria-label="Trade Professionals">Trade Professionals</a></li>
-                    <!--  <li><a class="noSlash" href="/page-coming-soon.html" aria-label="Ideas & Advice">Ideas & Advice</a></li> -->
-                </ul>
+        <div class="bannerCont-WD centerWrap-WD top-banner-inner">
+            <h1 class="topBanner-tagline"><a href="https://www.logicxo.com/" target="_blank" rel="noopener noreferrer">What's LogicXO?</a></h1>
+            <div class="topBanner-carousel" role="region" aria-label="Promotions" aria-live="polite">
+                <button type="button" class="topBanner-carousel-btn topBanner-carousel-btn--prev" aria-label="Previous message">
+                    <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+                </button>
+                <div class="topBanner-carousel-slides">
+                    <p class="topBanner-promo is-active" aria-hidden="false">Use promo codes to save on products and overstock.</p>
+                    <p class="topBanner-promo" aria-hidden="true">Sign in for member-only pricing and extra discounts on every order.</p>
+                    <p class="topBanner-promo" aria-hidden="true">Overstock deals move fast — shop clearance lighting while supplies last.</p>
+                </div>
+                <button type="button" class="topBanner-carousel-btn topBanner-carousel-btn--next" aria-label="Next message">
+                    <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+                </button>
             </div>
+            <a href="/contact-us" class="topBanner-store-link" aria-label="Find our store">
+                <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+                <span>Find our store</span>
+            </a>
         </div>
     </div>
 <div>
@@ -22,28 +30,66 @@
             <div class="bottom-bar"></div>
         </div>
         <div class="mainLogo">
-            <a href="/" aria-label="LogicXO home" class="header-logo-link">
+            <a href="/lighting-fixtures?showitems=1" aria-label="LogicXO home" class="header-logo-link">
                 <img src="/data/images/logicxo-usa.png" alt="LogicXO" class="header-logo-img" width="300" height="72">
             </a>
         </div>
         <div id="searchHolder" class="header-search">
             <div id="searchbar" class="enhanced-search">
                 <label class="visually-hidden" for="catalogSearchInput">Search catalog by item number, SKU, keyword, or brand</label>
+                <span class="header-search-icon" aria-hidden="true"><i class="fa-solid fa-magnifying-glass"></i></span>
                 <input type="text" id="catalogSearchInput" name="itemNumVal" placeholder="Search by item #, SKU, keyword, or brand" search="categories||products" results="6" aria-label="Search catalog">
-                <button type="submit" aria-label="Search catalog"><span class="header-search-btn-text">Search</span><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></button>
+                <button type="submit" aria-label="Search catalog"><span class="header-search-btn-text">Search</span></button>
             </div>
         </div>
         <div class="header-utilities">
-            <ul class="header-action-btns">
-                <li class="header-action-item header-action-item--hide-mobile"><a class="header-action-btn" href="mailto:hello@logicxo.com">Contact</a></li>
-                <li class="header-action-item header-action-item--hide-mobile"><a class="header-action-btn" href="/wishlist">Wishlist</a></li>
-                <li id="userLogo" class="header-action-item header-action-item--hide-mobile"><a class="header-action-btn" id="LOGINLINK-WD" href="login.php">Account<span id="fullName-WD"></span></a></li>
-                <li id="cartLogo" class="header-action-item" xo-popover="Cart"><span class="header-action-btn header-action-btn--cart">Cart<span class="cartCounter" counter-qty="Cart">0</span></span></li>
-            </ul>
+            <div class="header-utilities-row">
+            <div class="expert-help">
+                <button type="button" class="expert-help-trigger" id="expertHelpTrigger" aria-expanded="false" aria-haspopup="true" aria-controls="expertHelpMenu">
+                    <i class="fa-solid fa-headset expert-help-trigger-icon" aria-hidden="true"></i>
+                    <span class="expert-help-trigger-text">Expert Help</span>
+                    <i class="fa-solid fa-chevron-down expert-help-chevron" aria-hidden="true"></i>
+                </button>
+                <div class="expert-help-menu" id="expertHelpMenu" role="menu" aria-labelledby="expertHelpTrigger">
+                    <a href="https://support.logicxo.com/" class="expert-help-item" role="menuitem" target="_blank" rel="noopener noreferrer">
+                        <i class="fa-solid fa-circle-question" aria-hidden="true"></i>
+                        <span>Help Center</span>
+                    </a>
+                    <a href="mailto:hello@logicxo.com?subject=Text%20an%20Expert" class="expert-help-item" role="menuitem">
+                        <i class="fa-solid fa-comment-sms" aria-hidden="true"></i>
+                        <span>Text an Expert</span>
+                    </a>
+                    <a href="/contact-us" class="expert-help-item" role="menuitem">
+                        <i class="fa-solid fa-comments" aria-hidden="true"></i>
+                        <span>Chat with a Representative</span>
+                    </a>
+                    <a href="mailto:hello@logicxo.com" class="expert-help-item" role="menuitem">
+                        <i class="fa-solid fa-phone" aria-hidden="true"></i>
+                        <span>hello@logicxo.com</span>
+                    </a>
+                </div>
+            </div>
+            <div id="userLogo" class="header-sign-in">
+                <a id="LOGINLINK-WD" href="login.php" class="header-action-btn header-action-btn--sign-in" aria-label="Sign in, Member extra discount">
+                    <i class="fa-regular fa-user header-action-btn-icon" id="userLogoI" aria-hidden="true"></i>
+                    <span class="header-sign-in-text">
+                        <span class="header-sign-in-default">
+                            <span class="header-sign-in-line">Sign in</span>
+                            <span class="header-sign-in-sub">Member extra discount</span>
+                        </span>
+                        <span id="fullName-WD"></span>
+                    </span>
+                </a>
+            </div>
+            <span id="cartLogo" class="header-cart-btn" xo-popover="Cart" role="button" tabindex="0" aria-label="Shopping cart">
+                <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+                <span class="cartCounter" counter-qty="Cart">0</span>
+            </span>
+            </div>
         </div>
     </div>
 
- <link href="/data/css/sb-dropdown-menu.css?v=7" rel="stylesheet">
+ <link href="/data/css/sb-dropdown-menu.css?v=11" rel="stylesheet">
 
 <nav class="sb-nav">
   <ul class="sb-menu">
@@ -106,7 +152,7 @@
         <span class="sb-promo-badge">July Sale</span>
         <span class="sb-promo-title">Up to 50% Off Chandeliers</span>
         <span class="sb-promo-text">Limited-time savings on select styles.</span>
-        <img src="/data/images/July-prom-sale.png" alt="July sale — up to 50% off" width="216" height="216" loading="lazy">
+        <img src="/data/images/July-prom-sale.png" alt="July sale — up to 50% off" width="168" height="168" loading="lazy">
         <span class="sb-promo-cta">Shop Chandeliers</span>
       </a>
     </div>
@@ -150,7 +196,7 @@
               <span class="sb-promo-badge">July Sale</span>
               <span class="sb-promo-title">Up to 50% Off Fans</span>
               <span class="sb-promo-text">Indoor &amp; outdoor styles for every room.</span>
-              <img src="/data/images/July-prom-sale-02.png" alt="July promo sale — up to 50% off" width="216" height="216" loading="lazy">
+              <img src="/data/images/July-prom-sale-02.png" alt="July promo sale — up to 50% off" width="168" height="168" loading="lazy">
               <span class="sb-promo-cta">Shop Fans</span>
             </a>
           </div>
@@ -190,7 +236,7 @@
                 <span class="sb-promo-badge">July Sale</span>
                 <span class="sb-promo-title">Furniture &amp; Decor Deals</span>
                 <span class="sb-promo-text">Tables, accents, and pieces to finish the room.</span>
-                <img src="/data/images/July-prom-sale.png" alt="July sale — up to 50% off" width="216" height="216" loading="lazy">
+                <img src="/data/images/July-prom-sale.png" alt="July sale — up to 50% off" width="168" height="168" loading="lazy">
                 <span class="sb-promo-cta">Shop Furniture</span>
               </a>
             </div>
@@ -241,7 +287,7 @@
                 <span class="sb-promo-badge">July Sale</span>
                 <span class="sb-promo-title">Outdoor Savings</span>
                 <span class="sb-promo-text">Wall lights, path lighting, and patio picks.</span>
-                <img src="/data/images/July-prom-sale-02.png" alt="July promo sale — up to 50% off" width="216" height="216" loading="lazy">
+                <img src="/data/images/July-prom-sale-02.png" alt="July promo sale — up to 50% off" width="168" height="168" loading="lazy">
                 <span class="sb-promo-cta">Shop Outdoor</span>
               </a>
             </div>
@@ -285,7 +331,7 @@
             <span class="sb-promo-badge">July Sale</span>
             <span class="sb-promo-title">Top Brand Deals</span>
             <span class="sb-promo-text">Visual Comfort, Hinkley, WAC &amp; more.</span>
-            <img src="/data/images/July-prom-sale.png" alt="July sale — up to 50% off" width="216" height="216" loading="lazy">
+            <img src="/data/images/July-prom-sale.png" alt="July sale — up to 50% off" width="168" height="168" loading="lazy">
             <span class="sb-promo-cta">Browse Brands</span>
           </a>
         </div>

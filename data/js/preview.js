@@ -85,12 +85,59 @@
         });
     }
 
+    function initExpertHelpPreview() {
+        document.body.addEventListener('click', function (e) {
+            var trigger = e.target.closest('.expert-help-trigger');
+            if (trigger) {
+                e.preventDefault();
+                e.stopPropagation();
+                var help = trigger.closest('.expert-help');
+                if (!help) return;
+                var isOpen = help.classList.toggle('is-open');
+                trigger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+                return;
+            }
+            if (!e.target.closest('.expert-help-menu')) {
+                document.querySelectorAll('.expert-help.is-open').forEach(function (el) {
+                    el.classList.remove('is-open');
+                });
+                document.querySelectorAll('.expert-help-trigger').forEach(function (el) {
+                    el.setAttribute('aria-expanded', 'false');
+                });
+            }
+        });
+    }
+
+    function initTopBannerCarouselPreview() {
+        document.querySelectorAll('.topBanner-carousel').forEach(function (carousel) {
+            var slides = carousel.querySelectorAll('.topBanner-promo');
+            var current = 0;
+            var total = slides.length;
+            if (total < 2) return;
+
+            function showSlide(index) {
+                current = (index + total) % total;
+                slides.forEach(function (slide, i) {
+                    var active = i === current;
+                    slide.classList.toggle('is-active', active);
+                    slide.setAttribute('aria-hidden', active ? 'false' : 'true');
+                });
+            }
+
+            var prevBtn = carousel.querySelector('.topBanner-carousel-btn--prev');
+            var nextBtn = carousel.querySelector('.topBanner-carousel-btn--next');
+            if (prevBtn) prevBtn.addEventListener('click', function () { showSlide(current - 1); });
+            if (nextBtn) nextBtn.addEventListener('click', function () { showSlide(current + 1); });
+            showSlide(0);
+        });
+    }
+
     function init() {
         REGIONS.reduce(function (chain, region) {
             return chain.then(function () {
                 return loadRegion(region);
             });
-        }, Promise.resolve()).then(initMobileMenuPreview);
+        }, Promise.resolve()).then(initMobileMenuPreview).then(initExpertHelpPreview).then(initTopBannerCarouselPreview);
     }
 
     init();
