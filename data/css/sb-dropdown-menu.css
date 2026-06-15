@@ -1,17 +1,34 @@
-/* 1. NAV WRAPPER - Thinner "grass line" (border) */
+/* LogicXO mega menu — brand-aligned, readable, modern */
+
 .sb-nav {
-  position: relative; 
+  --xo-gold-light: #e8dcc4;
+  --xo-gold: #c9a96e;
+  --xo-gold-dark: #a8854a;
+  --xo-gold-deep: #8a6f3e;
+  --xo-ink: #1a252b;
+  --xo-muted: #5a6570;
+  --xo-border: #e8edf2;
+  --xo-panel: #ffffff;
+  --xo-panel-soft: #faf7f2;
+  --font-display: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  position: relative;
   z-index: 50;
   background: #ffffff;
-  border-bottom: 1px solid #e0e0e0; /* Thinner, lighter gray line */
+  border-bottom: 1px solid var(--xo-border);
 }
 
 .sb-menu {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
-  justify-content: center;
+  list-style: none;
+  font-family: var(--font-body);
+  border: none;
 }
 
 .sb-menu > li {
@@ -19,59 +36,144 @@
 }
 
 .sb-menu > li > a {
-  padding: 1.2rem 1.25rem;
+  position: relative;
   display: block;
-  color: #000;
+  padding: 1rem 1.35rem 1.15rem;
+  color: var(--xo-ink);
   text-decoration: none;
-  font-weight: 500;
-  font-size: 0.95rem;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.01em;
+  line-height: 1.2;
+  transition: color 0.2s ease;
 }
 
-.sb-menu > li > a:hover {
-  color: #336699;
+.sb-menu > li > a::after {
+  content: '';
+  position: absolute;
+  left: 1.1rem;
+  right: 1.1rem;
+  bottom: 0;
+  height: 3px;
+  border-radius: 3px 3px 0 0;
+  background: var(--xo-gold);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* MEGA MENU */
+.sb-menu > li:hover > a,
+.sb-menu > li:focus-within > a {
+  color: var(--xo-gold-dark);
+}
+
+.sb-menu > li:hover > a::after,
+.sb-menu > li:focus-within > a::after {
+  transform: scaleX(1);
+}
+
+/* Subtle chevron on items with a panel */
+.sb-menu > li:has(.sb-mega-menu) > a {
+  padding-right: 1.65rem;
+}
+
+.sb-menu > li:has(.sb-mega-menu) > a::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 0.85rem;
+  width: 6px;
+  height: 6px;
+  margin-top: -4px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(45deg);
+  opacity: 0.45;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.sb-menu > li:hover:has(.sb-mega-menu) > a::before {
+  opacity: 0.85;
+  transform: rotate(45deg) translateY(1px);
+}
+
+/* ── Mega panel ── */
 .sb-mega-menu {
   position: absolute;
   top: 100%;
-  left: 0;
-  right: 0;
-  margin: 0 auto;
-  width: 100%;
-  max-width: 1200px;
-  background: #f5f5f5;
+  left: 50%;
+  transform: translateX(-50%) translateY(8px);
+  width: min(1200px, calc(100vw - 48px));
+  margin: 0 0 16px;
+  padding: 2.25rem 2.5rem 3.25rem;
+  box-sizing: border-box;
   display: flex;
-  justify-content: flex-start; /* Aligned to start for consistent spacing */
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0.5rem 0;
+  background: var(--xo-panel);
+  border: 1px solid var(--xo-border);
+  border-top: 3px solid var(--xo-gold);
+  border-radius: 0 0 14px 14px;
+  box-shadow:
+    0 4px 6px rgba(26, 37, 43, 0.04),
+    0 20px 48px rgba(26, 37, 43, 0.12);
   opacity: 0;
   visibility: hidden;
-  transform: translateY(5px);
-  transition: all 0.2s ease;
   pointer-events: none;
-  padding: 2.5rem;
-  box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+  transition:
+    opacity 0.22s ease,
+    visibility 0.22s ease,
+    transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 100;
 }
 
-.sb-menu > li:hover > .sb-mega-menu {
+.sb-menu > li:hover > .sb-mega-menu,
+.sb-menu > li:focus-within > .sb-mega-menu {
   opacity: 1;
   visibility: visible;
-  transform: translateY(0);
+  transform: translateX(-50%) translateY(0);
   pointer-events: auto;
 }
 
-/* 2. REMOVED GRAY LINES: Standardized columns */
-.sb-mega-menu .sb-col {
-  padding: 0 1.5rem;
-  flex: 0 1 auto;
-  min-width: 180px;
-  border: none; /* Ensures no lines under columns */
+/* Keep link columns + promo CTA on one row */
+.sb-mega-menu:has(.sb-promo-card) {
+  flex-wrap: nowrap;
+  align-items: stretch;
 }
 
-/* 3. TWO COLUMN SPLIT for long lists */
+.sb-mega-menu:has(.sb-promo-card) .sb-col:not(.sb-col-image) {
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: none;
+}
+
+/* Columns */
+.sb-mega-menu .sb-col {
+  flex: 0 1 auto;
+  min-width: 190px;
+  max-width: 240px;
+  padding: 0.35rem 1.75rem 1rem 0;
+  border: none;
+}
+
+.sb-mega-menu .sb-col + .sb-col:not(.sb-col-image) {
+  border-left: 1px solid var(--xo-border);
+  padding-left: 1.75rem;
+}
+
 .sb-col-split {
   display: flex;
-  gap: 2rem;
+  gap: 2.5rem;
+  flex: 1 1 auto;
+  min-width: min(100%, 520px);
+  max-width: none;
+}
+
+.sb-col-split > ul + ul {
+  margin-top: 0;
+  padding-top: 2.35rem;
 }
 
 .sb-mega-menu .sb-col ul {
@@ -81,51 +183,278 @@
 }
 
 .sb-mega-menu .sb-col li {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.15rem;
 }
 
-.sb-mega-menu .sb-col a {
-  color: #555;
-  text-decoration: none;
-  font-size: 0.85rem;
-  display: inline-block;
-}
-
-.sb-mega-menu .sb-col a:hover {
-  color: #336699;
-}
-
+/* Section headings */
 .sb-mega-menu .sb-col strong {
   display: block;
-  margin-bottom: 1rem;
+  margin: 0 0 0.85rem;
+  padding-bottom: 0.55rem;
+  border-bottom: 2px solid rgba(201, 169, 110, 0.35);
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  color: var(--xo-ink);
+  line-height: 1.2;
+}
+
+.sb-mega-menu .sb-col strong a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.sb-mega-menu .sb-col strong a:hover {
+  color: var(--xo-gold);
+}
+
+/* Links — nav columns only (not promo card) */
+.sb-mega-menu .sb-col:not(.sb-promo-card) a {
+  display: inline-block;
+  padding: 0.42rem 0.55rem 0.42rem 0.65rem;
+  margin-left: -0.65rem;
+  border-radius: 6px;
+  color: var(--xo-muted);
+  text-decoration: none;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  line-height: 1.35;
+  transition:
+    color 0.18s ease,
+    background-color 0.18s ease,
+    transform 0.18s ease;
+}
+
+.sb-mega-menu .sb-col:not(.sb-promo-card) li:not(:has(strong)) a:hover,
+.sb-mega-menu .sb-col:not(.sb-promo-card) li:not(:has(strong)) a:focus-visible {
+  color: var(--xo-gold-dark);
+  background: rgba(201, 169, 110, 0.14);
+  transform: translateX(3px);
+  outline: none;
+}
+
+.sb-mega-menu .sb-col b a,
+.sb-mega-menu .sb-col li:last-child b a {
+  font-weight: 700;
+  color: var(--xo-gold);
+}
+
+.sb-mega-menu .sb-col b a:hover {
+  color: var(--xo-gold-dark);
+}
+
+/* Promo CTA card — full-height right rail */
+.sb-col-image.sb-promo-card {
+  flex: 0 0 260px;
+  width: 260px;
+  max-width: 260px;
+  min-width: 260px;
+  margin-left: auto;
+  align-self: stretch;
+  padding: 0 0 0.5rem 1.75rem !important;
+  border-left: 1px solid var(--xo-border) !important;
+}
+
+.sb-promo-link {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 0.55rem;
+  margin: 0 !important;
+  padding: 1.2rem 1.2rem 1.45rem !important;
+  border-radius: 12px;
+  text-decoration: none;
+  color: #e8eef4;
+  background: linear-gradient(165deg, #141414 0%, #000000 100%);
+  box-shadow: 0 10px 28px rgba(26, 37, 43, 0.18);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.sb-promo-link:hover,
+.sb-promo-link:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 36px rgba(26, 37, 43, 0.24);
+  background: linear-gradient(165deg, #141414 0%, #000000 100%);
+  outline: none;
+}
+
+.sb-promo-badge {
+  align-self: flex-start;
+  padding: 0.28rem 0.65rem;
+  border-radius: 999px;
+  background: var(--xo-gold);
+  color: #000000;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
   text-transform: uppercase;
-  font-size: 0.75rem;
-  letter-spacing: 0.05em;
-  color: #000;
+  line-height: 1.2;
 }
 
-/* 4. IMAGE PLACEHOLDER (Now consistent on right) */
-.sb-col-image {
-  margin-left: auto; /* Pushes image to the far right */
+.sb-promo-title {
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  font-weight: 600;
+  line-height: 1.15;
+  color: var(--xo-gold-light);
+  letter-spacing: 0.01em;
 }
 
-.sb-col-image img {
+.sb-promo-text {
+  font-size: 0.8125rem;
+  line-height: 1.45;
+  color: #aeb6c1;
+  margin-bottom: 0.35rem;
+}
+
+.sb-promo-link img {
   display: block;
+  width: 100%;
+  max-width: 216px;
+  aspect-ratio: 1 / 1;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+  margin-top: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0;
+  padding: 4px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: #ffffff;
+  box-sizing: border-box;
+}
+
+.sb-promo-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
+  padding: 0.8125rem 1rem;
+  min-height: 44px;
+  border-radius: 8px;
+  background: var(--xo-gold);
+  color: #000000;
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 0.02em;
+  flex-shrink: 0;
+  transition: background-color 0.2s ease;
+}
+
+.sb-promo-link:hover .sb-promo-cta,
+.sb-promo-link:focus-visible .sb-promo-cta {
+  background: var(--xo-gold-dark);
+  color: #ffffff;
+}
+
+/* Legacy bare image promo (fallback) */
+.sb-col-image:not(.sb-promo-card) {
+  margin-left: auto;
+  align-self: stretch;
+  padding: 0.5rem 0 0.5rem 1.5rem !important;
+  border-left: 1px solid var(--xo-border) !important;
+  flex: 0 0 auto;
+}
+
+.sb-col-image:not(.sb-promo-card) a {
+  display: block;
+  margin: 0 !important;
+  padding: 0 !important;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(26, 37, 43, 0.1);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.sb-col-image:not(.sb-promo-card) a:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 14px 32px rgba(26, 37, 43, 0.16);
+  background: transparent;
+}
+
+.sb-col-image:not(.sb-promo-card) img {
+  display: block;
+  width: 100%;
   max-width: 100%;
   height: auto;
+  vertical-align: middle;
 }
 
 .sb-image-square {
   width: 220px;
   height: 220px;
-  background-color: #e0e0e0;
-  background-image: linear-gradient(45deg, #e0e0e0 25%, #e8e8e8 25%, #e8e8e8 50%, #e0e0e0 50%, #e0e0e0 75%, #e8e8e8 75%, #e8e8e8 100%);
-  background-size: 20px 20px;
+  border-radius: 12px;
+  background-color: var(--xo-border);
 }
 
 /* Desktop only — mobile uses hamburger menu in styles.css */
 @media (max-width: 1023px) {
   .sb-nav {
     display: none !important;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1280px) {
+  .sb-menu > li > a {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-size: 0.9375rem;
+  }
+
+  .sb-mega-menu {
+    width: calc(100vw - 32px);
+    padding: 1.85rem 1.75rem 2.75rem;
+    margin-bottom: 12px;
+  }
+
+  .sb-mega-menu .sb-col {
+    min-width: 160px;
+    padding-right: 1.25rem;
+  }
+
+  .sb-mega-menu .sb-col + .sb-col:not(.sb-col-image) {
+    padding-left: 1.25rem;
+  }
+
+  .sb-mega-menu:has(.sb-promo-card) {
+    flex-wrap: wrap;
+  }
+
+  .sb-col-image.sb-promo-card {
+    flex: 1 1 100%;
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+    margin-left: 0;
+    padding: 1rem 0 0 !important;
+    border-left: none !important;
+    border-top: 1px solid var(--xo-border);
+  }
+
+  .sb-promo-link {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem 1rem;
+  }
+
+  .sb-promo-link img {
+    width: 140px;
+    max-width: 140px;
+    margin-top: 0;
+    margin-left: auto;
+    margin-right: 0;
+    flex-shrink: 0;
+  }
+
+  .sb-promo-cta {
+    margin-top: 0.75rem;
+    width: 100%;
   }
 }

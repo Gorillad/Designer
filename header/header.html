@@ -2,49 +2,48 @@
      Header JS is loaded via the Metadata section (/data/js/header.js). -->
     <div class="topBanner-WD">
         <div class="bannerCont-WD centerWrap-WD displayFlex-WD spaceBetween-WD">
-            <h1>Get 20% off All Purchases above 75.00  USE PROMO CODE : SBSPRING26</h1> 
+            <h1>Exclusive promo codes on featured deals — shop top picks in lighting, fans &amp; décor and save today</h1> 
             <div class="desktopNav">
                 <ul>
                     <li><a href="/" aria-label="Home">Home</a></li>
                     <li><a href="/about-us" aria-label="About Us">About Us</a></li>
                     <li><a href="/contact-us" aria-label="Contact Us">Contact</a></li>
-                    <li><a href="tel:310-714-9834" aria-label="Call Us">Call us : 310-714-9834</a></li>
                    <li><a href="/page-trade-pros.html" aria-label="Trade Professionals">Trade Professionals</a></li>
                     <!--  <li><a class="noSlash" href="/page-coming-soon.html" aria-label="Ideas & Advice">Ideas & Advice</a></li> -->
-                   <li><a class="noSlash" href="/page-gallery.html" aria-label="Inspiration Gallery">Inspiration Gallery</a></li>
                 </ul>
             </div>
         </div>
     </div>
 <div>
-    <div class="middleSection-WD centerWrap-WD displayGrid-WD alignCenter-WD">
+    <div class="middleSection-WD centerWrap-WD header-main">
         <div class="hamburger" mobile-menu="show">
             <div class="top-bar"></div>
             <div class="middle-bar"></div>
             <div class="bottom-bar"></div>
         </div>
-        <div id="searchHolder">
-            <div id="searchbar" class="enhanced-search">
-                <button type="submit" aria-label="Search Submit Button"><i class="fa fa-search" aria-hidden="true"></i></button>
-                <input type="text" name="itemNumVal" placeholder="Enter Keyword or item #" search="categories||products" results="6"  aria-label="Search Keywords">
-            </div>
-        </div>
         <div class="mainLogo">
-            <a href="/">
-                <img src="/data/images/logicxo-usa.png" alt="LogicXO Logo" style="width:260px; height:auto;">
+            <a href="/" aria-label="LogicXO home" class="header-logo-link">
+                <img src="/data/images/logicxo-usa.png" alt="LogicXO" class="header-logo-img" width="300" height="72">
             </a>
         </div>
-        <div class="iconSectionH-WD">     
-            <ul class="displayFlex-WD flexEnd-WD gap60">
-                <li id="mapLogo"><a href="/contact-us" aria-label="Contact Us"><i class="fa-light fa-location-dot"></i></a></li>
-                <li id="heartLogo"><a href="/wishlist" aria-label="Wishlist"><i class="fa-light fa-heart"></i></a></li>
-                <li id="userLogo"><a id="LOGINLINK-WD" href="login.php" aria-label="Login"><i id="userLogoI" class="fa-light fa-user"></i><span id="fullName-WD"></span></a></li>
-                <li id="cartLogo" xo-popover="Cart"><i class="fa-light fa-cart-shopping" ></i> <span class="cartCounter" counter-qty="Cart">0</span></li>
+        <div id="searchHolder" class="header-search">
+            <div id="searchbar" class="enhanced-search">
+                <label class="visually-hidden" for="catalogSearchInput">Search catalog by item number, SKU, keyword, or brand</label>
+                <input type="text" id="catalogSearchInput" name="itemNumVal" placeholder="Search by item #, SKU, keyword, or brand" search="categories||products" results="6" aria-label="Search catalog">
+                <button type="submit" aria-label="Search catalog"><span class="header-search-btn-text">Search</span><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></button>
+            </div>
+        </div>
+        <div class="header-utilities">
+            <ul class="header-action-btns">
+                <li class="header-action-item header-action-item--hide-mobile"><a class="header-action-btn" href="mailto:hello@logicxo.com">Contact</a></li>
+                <li class="header-action-item header-action-item--hide-mobile"><a class="header-action-btn" href="/wishlist">Wishlist</a></li>
+                <li id="userLogo" class="header-action-item header-action-item--hide-mobile"><a class="header-action-btn" id="LOGINLINK-WD" href="login.php">Account<span id="fullName-WD"></span></a></li>
+                <li id="cartLogo" class="header-action-item" xo-popover="Cart"><span class="header-action-btn header-action-btn--cart">Cart<span class="cartCounter" counter-qty="Cart">0</span></span></li>
             </ul>
-        </div> 
+        </div>
     </div>
 
- <link href="/data/css/sb-dropdown-menu.css" rel="stylesheet">
+ <link href="/data/css/sb-dropdown-menu.css?v=7" rel="stylesheet">
 
 <nav class="sb-nav">
   <ul class="sb-menu">
@@ -102,8 +101,14 @@
 
           </ul>
         </div>
-    <div class="sb-col sb-col-image">
-      <a href="/lighting-fixtures/chandeliers"><img src="/data/images/drop-down-promo.png" alt="South Bay Lighting Promo Sale"></a>
+    <div class="sb-col sb-col-image sb-promo-card">
+      <a class="sb-promo-link" href="/lighting-fixtures/chandeliers">
+        <span class="sb-promo-badge">July Sale</span>
+        <span class="sb-promo-title">Up to 50% Off Chandeliers</span>
+        <span class="sb-promo-text">Limited-time savings on select styles.</span>
+        <img src="/data/images/July-prom-sale.png" alt="July sale — up to 50% off" width="216" height="216" loading="lazy">
+        <span class="sb-promo-cta">Shop Chandeliers</span>
+      </a>
     </div>
   </div>
 </li>
@@ -140,8 +145,14 @@
             <li><a href="/lighting-fixtures/fan-accessories">Fan Accessories</a></li>
           </ul>
         </div>
-          <div class="sb-col sb-col-image">
-            <a href="/lighting-fixtures/fans"><img src="/data/images/drop-down-promo.png" alt="South Bay Lighting Promo Sale"></a>
+          <div class="sb-col sb-col-image sb-promo-card">
+            <a class="sb-promo-link" href="/lighting-fixtures/fans">
+              <span class="sb-promo-badge">July Sale</span>
+              <span class="sb-promo-title">Up to 50% Off Fans</span>
+              <span class="sb-promo-text">Indoor &amp; outdoor styles for every room.</span>
+              <img src="/data/images/July-prom-sale-02.png" alt="July promo sale — up to 50% off" width="216" height="216" loading="lazy">
+              <span class="sb-promo-cta">Shop Fans</span>
+            </a>
           </div>
       </div>
     </li>
@@ -174,8 +185,14 @@
             <li><a href="/lighting-fixtures/furniture">More Furniture</a></li>
           </ul>
         </div>
-            <div class="sb-col sb-col-image">
-              <a href="/lighting-fixtures/furniture"><img src="/data/images/drop-down-promo.png" alt="South Bay Lighting Promo Sale"></a>
+            <div class="sb-col sb-col-image sb-promo-card">
+              <a class="sb-promo-link" href="/lighting-fixtures/furniture">
+                <span class="sb-promo-badge">July Sale</span>
+                <span class="sb-promo-title">Furniture &amp; Decor Deals</span>
+                <span class="sb-promo-text">Tables, accents, and pieces to finish the room.</span>
+                <img src="/data/images/July-prom-sale.png" alt="July sale — up to 50% off" width="216" height="216" loading="lazy">
+                <span class="sb-promo-cta">Shop Furniture</span>
+              </a>
             </div>
       </div>
     </li>
@@ -219,8 +236,14 @@
             <li><strong><a href="/lighting.com/lighting-fixtures/exterior/exterior-fans">Outdoor Fans</a></strong></li>
           </ul>
         </div>
-            <div class="sb-col sb-col-image">
-              <a href="/lighting-fixtures/exterior"><img src="/data/images/drop-down-promo.png" alt="South Bay Lighting Promo Sale"></a>
+            <div class="sb-col sb-col-image sb-promo-card">
+              <a class="sb-promo-link" href="/lighting-fixtures/exterior">
+                <span class="sb-promo-badge">July Sale</span>
+                <span class="sb-promo-title">Outdoor Savings</span>
+                <span class="sb-promo-text">Wall lights, path lighting, and patio picks.</span>
+                <img src="/data/images/July-prom-sale-02.png" alt="July promo sale — up to 50% off" width="216" height="216" loading="lazy">
+                <span class="sb-promo-cta">Shop Outdoor</span>
+              </a>
             </div>
       </div>
     </li>
@@ -257,32 +280,15 @@
             <li><b><a href="/brands">More Brands</a></b></li>
       </ul>
     </div>
-        <div class="sb-col sb-col-image">
-          <a href="/lighting-fixtures/brands"><img src="/data/images/drop-down-promo.png" alt="South Bay Lighting Promo Sale"></a>
+        <div class="sb-col sb-col-image sb-promo-card">
+          <a class="sb-promo-link" href="/brands">
+            <span class="sb-promo-badge">July Sale</span>
+            <span class="sb-promo-title">Top Brand Deals</span>
+            <span class="sb-promo-text">Visual Comfort, Hinkley, WAC &amp; more.</span>
+            <img src="/data/images/July-prom-sale.png" alt="July sale — up to 50% off" width="216" height="216" loading="lazy">
+            <span class="sb-promo-cta">Browse Brands</span>
+          </a>
         </div>
-  </div>
-</li>
-
-    <!-- 7. Shop by Room -->
-<li>
-  <a href="/rooms">Shop by Room</a>
-  <div class="sb-mega-menu">
-    <div class="sb-col sb-col-split">
-      <ul>
-        <li><strong>Interior</strong></li>
-        <li><a href="/room/bathroom">Bathroom</a></li>
-        <li><a href="/room/bedroom">Bedroom</a></li>
-        <li><a href="/room/dining-room">Dining Room</a></li>
-        <li><a href="/room/kitchen">Kitchen</a></li>
-      </ul>
-      <ul style="margin-top: 1.8rem;">
-        <li><a href="/room/living-room">Living Room</a></li>
-        <li><a href="/room/office-den">Office/Den</a></li>
-        <li><a href="/room/entry-foyer">Entry/Foyer</a></li>
-        <li><a href="/room/outdoor-patio">Outdoor/Patio</a></li>
-      </ul>
-    </div>
-
   </div>
 </li>
 
@@ -305,11 +311,10 @@
         <a href="/lighting-fixtures/furniture"><mobile-link>Furniture &amp; Decor</mobile-link></a>
         <a href="/lighting-fixtures/exterior"><mobile-link>Outdoor</mobile-link></a>
         <a href="/brands"><mobile-link>Brands</mobile-link></a>
-        <a href="/rooms"><mobile-link>Shop by Room</mobile-link></a>
         <a href="/page-gallery.html"><mobile-link>Inspirations</mobile-link></a>
         <divider></divider>
         <a id="mobileLoginLink" href="/login.php"><mobile-link><span class="loginShow">Hi, </span><span id="mobileLoginBtn">Sign In | Create Account</span></mobile-link></a>
-        <a href="/contact-us"><mobile-link>Locations & Hours</mobile-link></a>
+        <a href="mailto:hello@logicxo.com"><mobile-link>hello@logicxo.com</mobile-link></a>
         <divider></divider>
         <div class="loggedInContent">
             <mobile-sub-header>Account</mobile-sub-header>
@@ -337,7 +342,7 @@
         <a href="/"><mobile-link>Home</mobile-link></a>
         <a href="/about-us"><mobile-link>About Us</mobile-link></a>
         <a href="/contact-us"><mobile-link>Contact Us</mobile-link></a>
-        <a href="tel:310-714-9834"><mobile-link>Call us : 310-714-9834</mobile-link></a>
+        <a href="mailto:hello@logicxo.com"><mobile-link>hello@logicxo.com</mobile-link></a>
         <a href="/contact-us"><mobile-link>Ask Our Experts</mobile-link></a>
         <a href="/page-trade-pros.html"><mobile-link>Trade Professionals</mobile-link></a>
         <a href="/page-gallery.html"><mobile-link>Inspiration Gallery</mobile-link></a>
@@ -355,15 +360,14 @@
         </tab-box>
         <divider></divider>
         <social-media-icons>
-            <a href="https://www.instagram.com/lightingzonela/" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-            <a href="https://www.facebook.com/dreamonlighting.showroom/" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="https://twitter.com/dreamonlightin1"  aria-label="Twitter"><svg xmlns="http://www.w3.org/2000/svg" height="28" width="28" viewBox="0 0 512 512"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"></path></svg></a>
-            <a href="https://www.pinterest.com/dreamonlighting/"  aria-label="Pinterest"><i class="fa-brands fa-pinterest-p"></i></a>
+            <a href="https://www.instagram.com/lightingzonela/" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+            <a href="https://www.facebook.com/dreamonlighting.showroom/" aria-label="Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+            <a href="https://twitter.com/dreamonlightin1" aria-label="Twitter"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a>
+            <a href="https://www.pinterest.com/dreamonlighting/" aria-label="Pinterest"><i class="fa-brands fa-pinterest-p" aria-hidden="true"></i></a>
         </social-media-icons>
         <mobile-menu-footer>
-            support@southbaylighting.com
-            <br>
-              <div class="copyRight-WD">&copy; <span id="currentYear">2026</span> SouthBayLighting<BR>Site Development By <a href="http://www.m2bridge.com/" target="_blank">M2Bridge.com</a>  XOLogic-Shopify-Magento  eCommerce Conversion Experts Los-Angeles</div>
+            <a href="mailto:hello@logicxo.com">hello@logicxo.com</a>
+            <div class="copyRight-WD">&copy; <span id="currentYear">2026</span> <span class="header-logo-text">LogicXO</span></div>
         </mobile-menu-footer>
     </mobile-menu-box>
 </mobile-menu>
