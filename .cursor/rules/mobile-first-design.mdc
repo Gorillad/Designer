@@ -1,0 +1,34 @@
+---
+description: All design work must be mobile-friendly by default
+alwaysApply: true
+---
+
+# Mobile-first design
+
+Every HTML/CSS change in this project must work on mobile, tablet, and desktop.
+
+## XOLogic context
+
+- Dashboard sections are raw HTML fragments (no `<html>`, `<head>`, or `<body>`).
+- The live site viewport is handled by XOLogic; local preview uses `preview.html`.
+
+## Requirements
+
+- Use responsive layouts (`flex`, `grid`, `max-width: 100%`) — avoid fixed widths that overflow small screens.
+- Add or update `@media` rules when changing header, footer, or nav styles.
+- Touch targets: buttons and links should be at least ~44px tap area where possible.
+- Images: use `max-width: 100%; height: auto;` in CSS or inline styles.
+- Never use broad selectors like `nav { display: none }` — scope to header nav (e.g. `.sb-nav`).
+
+## Breakpoints in this project
+
+| Breakpoint | Behavior |
+|---|---|
+| ≤1023px | Hamburger menu; `.sb-nav` hidden; header search moves below logo |
+| ≤768px | Footer 2-column grid; tighter typography |
+| ≤480px | Footer single column |
+
+## Before finishing
+
+- Check layout at ~375px (phone) and ~768px (tablet).
+- Test with `preview.html` or `footer-preview.html` via Live Server.

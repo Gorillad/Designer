@@ -1,0 +1,131 @@
+/* 1. NAV WRAPPER - Thinner "grass line" (border) */
+.sb-nav {
+  position: relative; 
+  z-index: 50;
+  background: #ffffff;
+  border-bottom: 1px solid #e0e0e0; /* Thinner, lighter gray line */
+}
+
+.sb-menu {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  justify-content: center;
+}
+
+.sb-menu > li {
+  list-style: none;
+}
+
+.sb-menu > li > a {
+  padding: 1.2rem 1.25rem;
+  display: block;
+  color: #000;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.sb-menu > li > a:hover {
+  color: #336699;
+}
+
+/* MEGA MENU */
+.sb-mega-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1200px;
+  background: #f5f5f5;
+  display: flex;
+  justify-content: flex-start; /* Aligned to start for consistent spacing */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(5px);
+  transition: all 0.2s ease;
+  pointer-events: none;
+  padding: 2.5rem;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+  z-index: 100;
+}
+
+.sb-menu > li:hover > .sb-mega-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* 2. REMOVED GRAY LINES: Standardized columns */
+.sb-mega-menu .sb-col {
+  padding: 0 1.5rem;
+  flex: 0 1 auto;
+  min-width: 180px;
+  border: none; /* Ensures no lines under columns */
+}
+
+/* 3. TWO COLUMN SPLIT for long lists */
+.sb-col-split {
+  display: flex;
+  gap: 2rem;
+}
+
+.sb-mega-menu .sb-col ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sb-mega-menu .sb-col li {
+  margin-bottom: 0.5rem;
+}
+
+.sb-mega-menu .sb-col a {
+  color: #555;
+  text-decoration: none;
+  font-size: 0.85rem;
+  display: inline-block;
+}
+
+.sb-mega-menu .sb-col a:hover {
+  color: #336699;
+}
+
+.sb-mega-menu .sb-col strong {
+  display: block;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  color: #000;
+}
+
+/* 4. IMAGE PLACEHOLDER (Now consistent on right) */
+.sb-col-image {
+  margin-left: auto; /* Pushes image to the far right */
+}
+
+.sb-col-image img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.sb-image-square {
+  width: 220px;
+  height: 220px;
+  background-color: #e0e0e0;
+  background-image: linear-gradient(45deg, #e0e0e0 25%, #e8e8e8 25%, #e8e8e8 50%, #e0e0e0 50%, #e0e0e0 75%, #e8e8e8 75%, #e8e8e8 100%);
+  background-size: 20px 20px;
+}
+
+/* Desktop only — mobile uses hamburger menu in styles.css */
+@media (max-width: 1023px) {
+  .sb-nav {
+    display: none !important;
+  }
+}
