@@ -1,5 +1,5 @@
 /**
- * Local preview — loads the partials you maintain locally.
+ * Designer — local preview loader for header/footer partials.
  * Serve the project root with Live Server and open preview.html.
  */
 (function () {

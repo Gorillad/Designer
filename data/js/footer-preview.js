@@ -1,5 +1,5 @@
 /**
- * Loads data/footer/footer.html and boots footer.js — used by footer-preview.html.
+ * Designer — loads data/footer/footer.html and boots footer.js (footer-preview.html).
  */
 (function () {
     var FOOTER_HTML = 'data/footer/footer.html';

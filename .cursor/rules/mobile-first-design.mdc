@@ -3,9 +3,9 @@ description: All design work must be mobile-friendly by default
 alwaysApply: true
 ---
 
-# Mobile-first design
+# Mobile-first design (Designer)
 
-Every HTML/CSS change in this project must work on mobile, tablet, and desktop.
+Every HTML/CSS change in the Designer project must work on mobile, tablet, and desktop.
 
 ## XOLogic context
 
