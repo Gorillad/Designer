@@ -14,7 +14,7 @@
   --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 
   position: relative;
-  z-index: 50;
+  z-index: 10001;
   background: #ffffff;
   border-bottom: 1px solid var(--xo-border);
 }
@@ -34,6 +34,12 @@
 
 .sb-menu > li {
   list-style: none;
+  position: relative;
+}
+
+.sb-menu > li:hover,
+.sb-menu > li:focus-within {
+  z-index: 99999;
 }
 
 .sb-menu > li > a {
@@ -127,7 +133,7 @@
     opacity 0.22s ease,
     visibility 0.22s ease,
     transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
-  z-index: 100;
+  z-index: 99999;
 }
 
 .sb-menu > li:hover > .sb-mega-menu,

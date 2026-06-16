@@ -691,6 +691,10 @@ nav ul li a {
 .header.fixed .header-logo-img {
 	width: 240px;
 }
+main-head {
+	position: relative;
+	z-index: 10001;
+}
 .header {
   background-color: #fff;
   width: 100%;
